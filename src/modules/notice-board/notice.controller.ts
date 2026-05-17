@@ -3,7 +3,7 @@ import { CreateNoticeDto } from './dtos/create-notice.dto';
 import { NoticeService } from './notice.service';
 import { NoticeEntity } from './entities/notice.entity';
 
-@Controller('notice-board')
+@Controller('notice')
 export class NoticeController {
   constructor(private readonly noticeService: NoticeService) {}
 
