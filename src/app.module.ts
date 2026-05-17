@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
+import { NoticeBoardModule } from './modules/notice-board/notice-board.module';
 
 @Module({
-  imports: [],
+  imports: [NoticeBoardModule],
   controllers: [],
   providers: [],
 })
