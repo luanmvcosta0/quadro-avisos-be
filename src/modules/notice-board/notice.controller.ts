@@ -14,6 +14,6 @@ export class NoticeController {
 
   @Get('/')
   findNotice() {
-    return 'Notice created';
+    return this.noticeService.findNotice();
   }
 }
