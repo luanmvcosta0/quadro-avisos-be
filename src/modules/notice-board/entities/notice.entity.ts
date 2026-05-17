@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'notice-board' })
-export class NoticeBoardEntity {
+export class NoticeEntity {
   @PrimaryGeneratedColumn({ type: 'number', name: 'id' })
   id: number;
 
