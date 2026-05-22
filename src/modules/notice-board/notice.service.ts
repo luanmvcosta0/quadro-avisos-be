@@ -31,7 +31,7 @@ export class NoticeService {
   }
 
   async updateNotice(id: number, dto: UpdateNoticeDto) {
-    const notice = await this.noticeRepository.findOneBy({ id });
+    const notice = await this.findOneNotice(id);
 
     if (!notice) {
       throw new NotFoundException();
