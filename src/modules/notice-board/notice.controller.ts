@@ -38,6 +38,11 @@ export class NoticeController {
     return this.noticeService.findAllNotices();
   }
 
+  @Get(':id')
+  async findOneNotice(@Param('id') id: number) {
+    return this.noticeService.findOneNotice(id);
+  }
+
   @Patch(':id')
   updateNotice(@Param('id') id: number, @Body() dto: UpdateNoticeDto) {
     return this.noticeService.updateNotice(id, dto);

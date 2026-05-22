@@ -20,6 +20,16 @@ export class NoticeService {
     return this.noticeRepository.find();
   }
 
+  async findOneNotice(id: number) {
+    const notice = await this.noticeRepository.findOneBy({ id });
+
+    if (!notice) {
+      throw new NotFoundException(`Aviso ${id} não encontrado`);
+    }
+
+    return notice;
+  }
+
   async updateNotice(id: number, dto: UpdateNoticeDto) {
     const notice = await this.noticeRepository.findOneBy({ id });
 
