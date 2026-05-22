@@ -41,4 +41,10 @@ export class NoticeService {
 
     return this.noticeRepository.save(notice);
   }
+
+  async removeNotice(id: number) {
+    const notice = await this.findOneNotice(id);
+
+    await this.noticeRepository.remove(notice);
+  }
 }
