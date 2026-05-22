@@ -1,8 +1,9 @@
 import { Repository } from 'typeorm';
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { NoticeEntity } from './entities/notice.entity';
 import { CreateNoticeDto } from './dtos/create-notice.dto';
+import { UpdateNoticeDto } from './dtos/update-notice.dto';
 
 @Injectable()
 export class NoticeService {
@@ -17,5 +18,17 @@ export class NoticeService {
 
   findNotice() {
     return this.noticeRepository.find();
+  }
+
+  async updateNotice(id: number, dto: UpdateNoticeDto) {
+    const notice = await this.noticeRepository.findOneBy({ id });
+
+    if (!notice) {
+      throw new NotFoundException();
+    }
+
+    Object.assign(notice, dto);
+
+    return this.noticeRepository.save(notice);
   }
 }

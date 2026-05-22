@@ -1,8 +1,9 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { CreateNoticeDto } from './dtos/create-notice.dto';
 import { NoticeService } from './notice.service';
 import { NoticeEntity } from './entities/notice.entity';
 import { ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { UpdateNoticeDto } from './dtos/update-notice.dto';
 
 @Controller('notice')
 export class NoticeController {
@@ -35,5 +36,10 @@ export class NoticeController {
   @Get('/')
   findNotice() {
     return this.noticeService.findNotice();
+  }
+
+  @Patch(':id')
+  updateNotice(@Param('id') id: number, @Body() dto: UpdateNoticeDto) {
+    return this.noticeService.updateNotice(id, dto);
   }
 }
