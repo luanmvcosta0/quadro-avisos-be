@@ -34,8 +34,8 @@ export class NoticeController {
     description: 'Aviso não encontrado',
   })
   @Get('/')
-  findNotice() {
-    return this.noticeService.findNotice();
+  findAllNotices() {
+    return this.noticeService.findAllNotices();
   }
 
   @Patch(':id')

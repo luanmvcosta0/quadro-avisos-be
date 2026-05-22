@@ -16,7 +16,7 @@ export class NoticeService {
     return this.noticeRepository.save(dto);
   }
 
-  findNotice() {
+  findAllNotices() {
     return this.noticeRepository.find();
   }
 
